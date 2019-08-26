@@ -22,9 +22,7 @@ foldersRouter
   })
   .post(jsonParser, (req, res, next) => {
     const {folder_name} = req.body;
-    // console.log(folder_name);
     const newFolder = { folder_name };
-    console.log(newFolder);
     foldersService.insertFolder(
       req.app.get('db'),
       newFolder
@@ -42,7 +40,6 @@ foldersRouter
 foldersRouter
   .route('/:id')
   .get((req, res) => {
-    // console.log(res.folder);
     res.json(foldersService.serializeFolder(res.folder));
   });
 
